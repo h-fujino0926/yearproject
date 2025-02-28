@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Movie Detail{% endblock %}
+
+{% block contents %}
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col offset-3">
+      <!-- タイトル -->
+      <h2>{{object.title}}</h2>
+      <!-- 概要 -->
+      <p>{{object.description}}</p>
+      <br>
+      <!-- 投稿日時 -->
+      <p>{{object.posted_at}}に投稿</p>
+      <!-- 動画 -->
+      <p><img src="{{ object.movie_file.url }}"></img></p>
+      {% if request.user == object.user %}
+      <form method="POST">
+        <a href="{% url 'youtubeapp:movie_delete' object.pk %}" class="btn btn-outline-dark">削除する</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

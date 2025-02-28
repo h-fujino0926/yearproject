@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}年間制作{% endblock %}
+
+    {% block contents %}
+
+    {% include "movie_title.html" %}
+    {% include "movie.html" %}
+    {% include "pagination.html" %}
+
+    {% endblock %}
